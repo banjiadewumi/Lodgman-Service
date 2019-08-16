@@ -13,10 +13,12 @@ class ViewController: UIViewController {
     
     let watch = StopWatch()
     var dayTime: String = ""
+    var nextBus: String = ""
     
     @IBOutlet weak var timerLbl: UILabel!
     @IBOutlet weak var dayTimeLbl: UILabel!
     @IBOutlet weak var timeLastBusLeft: UILabel!
+    @IBOutlet weak var nextBusLbl: UILabel!
     
     
     override func viewDidLoad() {
@@ -77,8 +79,18 @@ class ViewController: UIViewController {
         switch dayTime {
         case "8:00 AM", "8:30 AM", "9:00 AM","9:30 AM","10:00 AM","10:30 AM","11:00 AM","11:30 AM",
              "12:00 PM","1:00 PM","2:00 PM","3:00 PM","3:30 PM","4:00 PM","4:30 PM",
-             "5:00 PM","5:30 PM","6:00 PM","7:00 PM","8:00 PM":
+             "5:00 PM","5:30 PM","6:00 PM","7:00 PM","11:50 PM":
             timeLastBusLeft.text = dayTime
+            
+            print(dayTime)
+            
+            let minutesToAdd: TimeInterval = 30 * 60
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mm a"
+            let date = dateFormatter.date(from: dayTime)
+            let datina = dateFormatter.string(from: date!)
+            print(datina)
+        
         default:
             return
         
