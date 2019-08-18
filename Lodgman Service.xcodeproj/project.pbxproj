@@ -13,7 +13,7 @@
 		310DC73E2300CF67007FE155 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 310DC73D2300CF67007FE155 /* Assets.xcassets */; };
 		310DC7412300CF67007FE155 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 310DC73F2300CF67007FE155 /* LaunchScreen.storyboard */; };
 		310DC7492300D0D8007FE155 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310DC7482300D0D8007FE155 /* AboutViewController.swift */; };
-		310DC74D2301B2FC007FE155 /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310DC74C2301B2FC007FE155 /* StopWatch.swift */; };
+		310DC75123092956007FE155 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310DC75023092956007FE155 /* ScheduleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		310DC7402300CF67007FE155 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		310DC7422300CF67007FE155 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		310DC7482300D0D8007FE155 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
-		310DC74C2301B2FC007FE155 /* StopWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatch.swift; sourceTree = "<group>"; };
+		310DC75023092956007FE155 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +60,8 @@
 			children = (
 				310DC7362300CF65007FE155 /* AppDelegate.swift */,
 				310DC7382300CF65007FE155 /* ViewController.swift */,
-				310DC74C2301B2FC007FE155 /* StopWatch.swift */,
 				310DC73A2300CF65007FE155 /* Main.storyboard */,
+				310DC75023092956007FE155 /* ScheduleViewController.swift */,
 				310DC7482300D0D8007FE155 /* AboutViewController.swift */,
 				310DC73D2300CF67007FE155 /* Assets.xcassets */,
 				310DC73F2300CF67007FE155 /* LaunchScreen.storyboard */,
@@ -141,10 +141,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				310DC75123092956007FE155 /* ScheduleViewController.swift in Sources */,
 				310DC7492300D0D8007FE155 /* AboutViewController.swift in Sources */,
 				310DC7392300CF65007FE155 /* ViewController.swift in Sources */,
 				310DC7372300CF65007FE155 /* AppDelegate.swift in Sources */,
-				310DC74D2301B2FC007FE155 /* StopWatch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
