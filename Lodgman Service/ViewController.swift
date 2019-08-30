@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     var nextBus: String = ""
     var timer = Timer()
     
+    let defaults = UserDefaults.standard
+    
     @IBOutlet weak var timerLbl: UILabel!
     @IBOutlet weak var dayTimeLbl: UILabel!
     @IBOutlet weak var timeLastBusLeft: UILabel!
@@ -28,7 +30,7 @@ class ViewController: UIViewController {
 
         timeOfDay()
         updateGlobaltime()
-        
+        readBackStoredTime()
     }
     
     
@@ -56,6 +58,14 @@ class ViewController: UIViewController {
         let minutes = Int(Date().timeIntervalSince(timerStart)) / 60
         timerLbl.text = String(format: "%02d:%02d", minutes, seconds)
         
+        
+        if minutes == 20 {
+            timer.invalidate()
+            timerLbl.text = "Bus Left 20 minutes ago"
+        }
+        else {
+            return
+        }
     }
     
     
@@ -82,25 +92,36 @@ class ViewController: UIViewController {
     func timeSinceLastBusLeft() {
      
         switch dayTime {
-        case "6:57 AM", "8:30 AM", "9:00 AM","9:53 AM","10:54 AM","10:30 AM","11:00 AM","11:30 AM",
+        case "7:41 AM", "8:30 AM", "9:58 AM","9:53 AM","10:21 AM","10:54 PM","11:00 AM","11:20 AM",
              "12:00 PM","1:00 PM","2:00 PM","3:00 PM","3:30 PM","4:00 PM","4:30 PM",
              "5:00 PM","5:30 PM","6:00 PM","7:00 PM","2:30 PM":
             
             let frozenTime = dayTime
             timeLastBusLeft.text = frozenTime
+            defaults.set(frozenTime, forKey: "iFrozeTime")
             recurringTimer()
             
             let minutesToAdd: TimeInterval = 30 * 60
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "h:mm a"
             let date = dateFormatter.date(from: frozenTime)
+            
             let nextBusTime = date?.addingTimeInterval(minutesToAdd)
             nextBus = dateFormatter.string(from: nextBusTime ?? Date())
+            defaults.set(nextBus, forKey: "nextBus")
             nextBusLbl.text = nextBus
         default:
             return
         
         }
+    }
+    
+    func readBackStoredTime() {
+        let recoveredTime = defaults.object(forKey: "iFrozeTime") as! String// fix this
+        timeLastBusLeft.text = String(recoveredTime)
+        
+        let recoveredNextBus = defaults.object(forKey: "nextBus") as! String? ?? "Available Soon"
+        nextBusLbl.text = recoveredNextBus
     }
     
     
